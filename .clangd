@@ -1,0 +1,51 @@
+# This Configuration should save you from
+# ...the unexpected Errors/Warnings from C/C++ LSP (clangd)
+
+# NOTE: This is configured for cross-compiling Windows binaries from macOS (M1).
+# Linux/Windows users: Adjust the include paths to match your mingw-w64 installation.
+
+CompileFlags:
+    Add:
+        - -target
+        # The compiler target needed to generate x86_64 Windows exe
+        # Changed to 'x86_64-windows-gnu' to match Zig's target
+        - x86_64-w64-mingw32
+        - x86_64-windows-gnu
+        #
+        # The 'windows.h' include paths for your installed mingw-w64
+        # **IMPORTANT**: Change these paths to match YOUR system!
+        #
+        # How to find your paths:
+        #   Linux: Usually in /usr/x86_64-w64-mingw32/ or /usr/lib/gcc/x86_64-w64-mingw32/
+        #   Windows (MSYS2/MinGW): In C:/msys64/mingw64/ or similar
+        #   macOS (Homebrew): Run `brew --prefix mingw-w64` to find base path
+        #
+        # --- [include paths - start] ---
+        - --gcc-toolchain=/opt/homebrew/Cellar/mingw-w64/13.0.0_2/toolchain-x86_64
+        - -isystem
+        - /opt/homebrew/Cellar/mingw-w64/13.0.0_2/toolchain-x86_64/x86_64-w64-mingw32/include
+        - -isystem
+        - /opt/homebrew/Cellar/mingw-w64/13.0.0_2/toolchain-x86_64/lib/gcc/x86_64-w64-mingw32/15.2.0/include
+        - -isystem
+        - /opt/homebrew/Cellar/mingw-w64/13.0.0_2/toolchain-x86_64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed
+        # --- [include paths - end] ---
+
+        # Windows preprocessor definitions
+        - -D_WIN32
+        - -D_WIN64
+        - -D__MINGW32__
+        - -D__MINGW64__
+        - -D__x86_64__
+
+    Remove:
+        # Remove macOS-specific flags (modify as needed for your OS)
+        - -isysroot*
+        - -mmacosx-version-min*
+
+Diagnostics:
+    Suppress:
+        - pragma-pack
+        - builtin_definition
+        - clang_conflicting_types # macOS specific (usually)
+        - conflicting_types
+    UnusedIncludes: Strict
