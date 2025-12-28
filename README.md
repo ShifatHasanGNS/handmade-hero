@@ -7,42 +7,43 @@
 **Install a Package Manager if you don't have one already:**
 
 - For **Windows**: **choco** (_Chocolatey_)
-    - Go to: [https://chocolatey.org/install#install-step2](https://chocolatey.org/install#install-step2)
+  - Go to: [https://chocolatey.org/install#install-step2](https://chocolatey.org/install#install-step2)
 - For **macOS**: **brew** (_Homebrew_)
-    - Go to: [https://brew.sh/](https://brew.sh/)
+  - Go to: [https://brew.sh/](https://brew.sh/)
 
 **Install a C/C++ Cross-Compiler: `mingw-w64`:**
 
 - On **Windows**:
 
-    ```sh
-    choco install mingw
-    ```
+  ```sh
+  choco install mingw
+  ```
 
 - On **macOS**:
 
-    ```sh
-    brew install mingw-w64
-    ```
+  ```sh
+  brew install mingw-w64
+  ```
 
 - On **Linux**:
-    - Debian / Ubuntu (and derivatives):
 
-        ```sh
-        sudo apt install mingw-w64
-        ```
+  - Debian / Ubuntu (and derivatives):
 
-    - Fedora:
+    ```sh
+    sudo apt install mingw-w64
+    ```
 
-        ```sh
-        sudo dnf install mingw64-gcc-c++
-        ```
+  - Fedora:
 
-    - Arch Linux:
+    ```sh
+    sudo dnf install mingw64-gcc-c++
+    ```
 
-        ```sh
-        sudo pacman -S mingw-w64-gcc
-        ```
+  - Arch Linux:
+
+    ```sh
+    sudo pacman -S mingw-w64-gcc
+    ```
 
 **Note:**
 
@@ -115,3 +116,9 @@
 - **`IDirectInputDevice8::SetCooperativeLevel`** _Method_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee417921(v=vs.85)
 - **`IDirectSound8::CreateSoundBuffer`** _Method_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee418039(v=vs.85)
 - **`WAVEFORMATEX`** _Structure_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee419019(v=vs.85)
+- **`Buffer`** _Basics_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee416967(v=vs.85)
+- **`Filling and Playing`** _Static Buffers_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee417553(v=vs.85)
+- **`IDirectSoundBuffer8::Lock`** _Method_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee418073(v=vs.85)
+- **`IDirectSoundBuffer8::GetCurrentPosition`** _Method_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee418062(v=vs.85)
+- **`IDirectSoundBuffer8::SetCurrentPosition`** _Method_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee418076(v=vs.85)
+- **`IDirectSoundBuffer8::Play`** _Method_: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee418074(v=vs.85)
