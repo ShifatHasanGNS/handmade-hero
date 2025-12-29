@@ -1,8 +1,6 @@
-#include <minwindef.h>
 #include <stdint.h>
 #include <windows.h>
 #include <dsound.h>
-#include <winerror.h>
 
 #define Internal      static
 #define Global_Var    static
