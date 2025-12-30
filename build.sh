@@ -5,7 +5,7 @@ OUTPUT="./Build/Handmade_Hero.exe"
 # Check the 'README.md' if you don't know how to install mingw-w64
 # on different platforms [Windows, macOS, Linux]...
 
-
+#
 # Compiler configuration:
 # - macOS: Use x86_64-w64-mingw32-g++ (install via Homebrew: brew install mingw-w64)
 # - Linux: Usually x86_64-w64-mingw32-g++ (install via apt/yum/pacman)
@@ -13,9 +13,8 @@ OUTPUT="./Build/Handmade_Hero.exe"
 C_CPP_COMPILER="x86_64-w64-mingw32-g++" # Change to 'g++' if on Windows
 #
 # If you have 'zig' installed, then:
-Zig_C_COMPILER="zig cc -target x86_64-windows-gnu" # Works from any OS
+Zig_C_COMPILER="zig c++ -target x86_64-windows-gnu" # Works from any OS
 #
-
 
 #
 # Windows libraries to link
@@ -61,7 +60,6 @@ LIBS_TO_LINK="-lgdi32 -lwinmm"
 # and providing automatic recognition for many modern gamepads.
 #
 
-
 usage() {
     printf "\n"
     printf "Usage:\n"
@@ -77,7 +75,6 @@ usage() {
     printf "\n"
 }
 
-
 case $1 in
     clean)
         printf "\nCleaning build directory..."
@@ -88,11 +85,11 @@ case $1 in
         if [[ $2 == 'cc' ]]; then
             mkdir -p Build
             printf "\nBuilding in DEBUG mode with MinGW...\n"
-            time ${C_CPP_COMPILER} -std=c++20 -g -O0 "${@:3}" -o ${OUTPUT} ${LIBS_TO_LINK}
+            time ${C_CPP_COMPILER} -std=c++26 -g -O0 "${@:3}" -o ${OUTPUT} ${LIBS_TO_LINK}
         elif [[ $2 == 'zig-cc' ]]; then
             mkdir -p Build
             printf "\nBuilding in DEBUG mode with Zig...\n"
-            time ${Zig_C_COMPILER} -g "${@:3}" -o ${OUTPUT} ${LIBS_TO_LINK}
+            time ${Zig_C_COMPILER} -std=c++26 -g "${@:3}" -o ${OUTPUT} ${LIBS_TO_LINK}
         else
             printf "\nSorry! Invalid Arguments...\n"
             usage
